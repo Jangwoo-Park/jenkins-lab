@@ -1,0 +1,42 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: mysql
+  labels:
+    name: mysql
+spec:
+  serviceName: mysql
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        name: mysql
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: mysql
+        image: perconalab/percona-xtradb-cluster:5.7
+        ports:
+        - containerPort: 3306
+          name: mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: edu
+        - name: DISCOVERY_SERVICE
+          value: etcd:2379
+        - name: XTRABACKUP_PASSWORD
+          value: edu
+        - name: CLUSTER_NAME
+          value: percona
+        volumeMounts:
+        - name: db
+          mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+  - metadata:
+      name: db
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi

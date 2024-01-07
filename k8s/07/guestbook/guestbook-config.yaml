@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: guestbook-config
+data:
+  MYSQL_ADDR: "192.168.137.100"
+  MYSQL_PORT: "3306"
+  MYSQL_DATABASE: "guestbook"

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: guestbook
+spec:
+  replicas: 3
+  selector:
+    app: guestbook
+  template:
+    metadata:
+      labels:
+        app: guestbook
+    spec:
+      containers:
+      - name: guestbook
+        image: yu3papa/k8s_guestbook:1.0
+        ports:
+        - containerPort: 8080

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: guestbook-xtradb-config
+data:
+# nodePort 서비스명을 이용한 접속 설정
+  MYSQL_ADDR: "mysql-client"
+  MYSQL_PORT: "13306"
+  MYSQL_DATABASE: "guestbook"
+  MYSQL_USER: "root"
+  MYSQL_USER_PASSWORD: "edu"

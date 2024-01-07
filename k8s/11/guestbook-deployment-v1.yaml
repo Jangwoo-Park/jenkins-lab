@@ -1,0 +1,15 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: guestbook
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: guestbook
+      labels:
+        app: guestbook
+    spec:
+      containers:
+      - image: yu3papa/k8s_guestbook:v1
+        name: springboot

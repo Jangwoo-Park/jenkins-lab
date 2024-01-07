@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: guestbook-liveness
+spec:
+  containers:
+  - image: yu3papa/k8s_guestbook:1.0
+    name: guestbook
+    livenessProbe:
+      httpGet:
+        path: /healthcheck
+        port: 8080
+      initialDelaySeconds: 15

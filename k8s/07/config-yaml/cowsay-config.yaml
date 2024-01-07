@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cowsay-config
+data:
+  bar: abc
+  debug: "true"
+  foo.json: |
+    {
+      foo: bar,
+      bar: 5
+    }
+  repeat: "100"
+  sleep-interval: "2"
+

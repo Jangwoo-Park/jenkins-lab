@@ -1,0 +1,7 @@
+name: 'Slack Notifcation Action'
+description: 'GitHub Actions에서 Slack 채널에 메세지 전송'
+author: "devops"
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
